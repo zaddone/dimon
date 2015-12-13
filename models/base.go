@@ -30,7 +30,7 @@ func getpq(){
 			Getenv("POSTGRESQL_PORT_5432_TCP_PORT",beego.AppConfig.String("psql.port")),
 			Getenv("POSTGRESQL_ENV_POSTGRES_USER",beego.AppConfig.String("psql.user")),
 			Getenv("POSTGRESQL_ENV_POSTGRES_PASSWORD",beego.AppConfig.String("psql.pwd")),
-			Getenv("POSTGRESQL_NAME",beego.AppConfig.String("psql.dbname")),
+			Getenv("POSTGRESQL_ENV_POSTGRES_NAME",beego.AppConfig.String("psql.dbname")),
 		),
 	)
 }
