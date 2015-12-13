@@ -10,11 +10,11 @@ func init(){
 
 	var err error;
 //	pwd := beego.AppConfig.String("redis.pwd")
-	ip:= beego.AppConfig.String("redis.ip")
-	port,_ := beego.AppConfig.Int("redis.port")
+//	ip:= beego.AppConfig.String("redis.ip")
+//	port,_ := beego.AppConfig.Int("redis.port")
 //	key:= beego.AppConfig.String("redis.key")
-	Redis, err = cache.NewCache("redis", fmt.Sprintf(`{"conn":"%s:%d"}`, ip, port))
-
+//	vedis, err = cache.NewCache("redis", fmt.Sprintf(`{"conn":"%s:%d"}`, ip, port))
+	Redis, err = cache.NewCache("memory", {"interval":60}))
 	if err != nil {
 		beego.Error(err)
 	}
