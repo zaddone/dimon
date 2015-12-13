@@ -8,7 +8,6 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 RUN go get github.com/beego/bee
 RUN go get github.com/astaxie/beego
-RUN go get github.com/nfnt/resize
 #RUN go get github.com/zaddone/dimon
 ADD . $GOPATH/src/github.com/zaddone/dimon
 WORKDIR $GOPATH/src/github.com/zaddone/dimon
