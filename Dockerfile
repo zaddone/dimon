@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER zaddone zaddone@qq.com
-ADD sources.list /etc/apt/sources.list 
+#ADD sources.list /etc/apt/sources.list 
 RUN apt-get update  
 RUN apt-get -y install golang git gcc && apt-get clean
 ENV GOPATH /go
