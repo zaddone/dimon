@@ -14,7 +14,7 @@ func init(){
 //	port,_ := beego.AppConfig.Int("redis.port")
 //	key:= beego.AppConfig.String("redis.key")
 //	vedis, err = cache.NewCache("redis", fmt.Sprintf(`{"conn":"%s:%d"}`, ip, port))
-	Redis, err = cache.NewCache("memory", {"interval":60}))
+	Redis, err = cache.NewCache("memory", {"interval":60})
 	if err != nil {
 		beego.Error(err)
 	}
