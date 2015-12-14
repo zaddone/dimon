@@ -1,15 +1,12 @@
-FROM ubuntu:14.04
+FROM golang:1.4
 MAINTAINER zaddone zaddone@qq.com
 #ADD sources.list /etc/apt/sources.list 
-RUN apt-get update  
-RUN apt-get -y install golang git gcc && apt-get clean
-ENV GOPATH /go
-ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
-RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+RUN mkdir -p  "/data_sqlite" && chmod -R 777  "/data_sqlite"
+VOLUME ["/data_sqlite"]
 RUN go get github.com/beego/bee
 RUN go get github.com/astaxie/beego
 RUN go get github.com/garyburd/redigo/redis
+RUN go get github.com/mattn/go-sqlite3
 ADD . $GOPATH/src/github.com/zaddone/dimon
 WORKDIR $GOPATH/src/github.com/zaddone/dimon
-EXPOSE 80
 CMD bee run 

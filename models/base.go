@@ -8,6 +8,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
+        _ "github.com/mattn/go-sqlite3"
 	"os"
 )
 
@@ -61,14 +62,20 @@ func getmysql(){
 			Getenv("MYSQL_NAME",beego.AppConfig.String("db.dbname")),
 		),
 	)
-	orm.RegisterDriver("mysql", orm.DR_MySQL)
+}
+func getsqlite(){
+
+	orm.RegisterDataBase("default", "sqlite3","/data_sqlite/dimon.db")
 }
 func init() {
 	orm.Debug = true
-	if beego.AppConfig.String("db") == "mysql" {
+	switch beego.AppConfig.String("db"){
+	case "mysql":
 		getmysql()
-	}else{
+	case "postgresql":
 		getpq()
+	case "sqlite":
+		getsqlite()
 	}
 //	user := beego.AppConfig.String("db.user")
 //	pwd := beego.AppConfig.String("db.pwd")
