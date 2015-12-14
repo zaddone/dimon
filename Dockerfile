@@ -9,4 +9,5 @@ RUN go get github.com/garyburd/redigo/redis
 RUN go get github.com/mattn/go-sqlite3
 ADD . $GOPATH/src/github.com/zaddone/dimon
 WORKDIR $GOPATH/src/github.com/zaddone/dimon
+EXPOSE 80
 CMD bee run 
