@@ -19,6 +19,21 @@ func Getenv(envName ,defaultVal string )(string){
 	}
 }
 
+func getpqDaoServer(){
+
+	orm.RegisterDataBase(
+		"default",
+		"postgres",
+		fmt.Sprintf(
+			"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+			Getenv("POSTGRESQL_PORT_5432_TCP_ADDR",beego.AppConfig.String("psql.addr")),
+			Getenv("POSTGRESQL_PORT_5432_TCP_PORT",beego.AppConfig.String("psql.port")),
+			Getenv("POSTGRESQL_USER",beego.AppConfig.String("psql.user")),
+			Getenv("POSTGRESQL_PASSWORD",beego.AppConfig.String("psql.pwd")),
+			Getenv("POSTGRESQL_INSTANCE_NAME",beego.AppConfig.String("psql.dbname")),
+		),
+	)
+}
 func getpq(){
 
 	orm.RegisterDataBase(

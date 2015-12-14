@@ -11,5 +11,5 @@ RUN go get github.com/astaxie/beego
 RUN go get github.com/garyburd/redigo/redis
 ADD . $GOPATH/src/github.com/zaddone/dimon
 WORKDIR $GOPATH/src/github.com/zaddone/dimon
-EXPOSE 8080
+EXPOSE 80
 CMD bee run 
